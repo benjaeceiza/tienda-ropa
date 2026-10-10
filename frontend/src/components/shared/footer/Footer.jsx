@@ -1,5 +1,6 @@
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -21,20 +22,20 @@ const Footer = () => {
         <div className="footer-links">
           <h4 className="footer-subtitle">SHOP</h4>
           <ul>
-            <li><a href="#">Hoodies</a></li>
-            <li><a href="#">Remeras</a></li>
-            <li><a href="#">Pantalones</a></li>
-            <li><a href="#">Accesorios</a></li>
+            <li><Link to={"/productos/hoodies"}>Hoodies</Link></li>
+            <li><Link to={"/productos/remeras"}>Remeras</Link></li>
+            <li><Link to={"/productos/pantalones"}>Pantalones</Link></li>
+            <li><Link to={"/productos/accesorios"}>Accesorios</Link></li>
           </ul>
         </div>
 
         <div className="footer-links">
           <h4 className="footer-subtitle">AYUDA</h4>
           <ul>
-            <li><a href="#">Envíos</a></li>
-            <li><a href="#">Cambios</a></li>
-            <li><a href="#">Talles</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><Link to={"#"}>Envíos</Link></li>
+            <li><Link to={"#"}>Cambios</Link></li>
+            <li><Link to={"#"}>Talles</Link></li>
+            <li><Link to={"#"}>Contacto</Link></li>
           </ul>
         </div>
 

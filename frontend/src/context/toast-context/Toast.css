@@ -1,0 +1,85 @@
+/* =========================================
+   SISTEMA DE TOASTS (NOTIFICACIONES)
+   ========================================= */
+.toast-container {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 10050; /* Por encima del carrito y el loader */
+  pointer-events: none; /* Para que no bloquee clics debajo de él */
+}
+
+.toast-notification {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #111; /* Fondo oscuro */
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  border-left: 4px solid var(--brand-red); /* Línea de acento roja */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  
+  /* Animación: Entra, espera, y se desvanece a los 2.7s (total 3s) */
+  animation: 
+    slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
+    fadeOut 0.3s ease forwards 2.7s; 
+}
+
+.toast-icon {
+  color: var(--brand-red);
+  font-size: 1.2rem;
+}
+
+.toast-message {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* --- KEYFRAMES (La magia del movimiento) --- */
+@keyframes slideInRight {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+/* En mobile lo centramos abajo */
+@media (max-width: 600px) {
+  .toast-container {
+    bottom: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90%;
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateY(120%); /* Entra desde abajo en mobile */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

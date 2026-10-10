@@ -1,0 +1,158 @@
+/* --- Estilo Principal de la Card --- */
+.product-card {
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  background-color: #000; /* Fondo negro por defecto */
+  overflow: hidden; /* Para que la foto no se salga al hacer zoom */
+  border: 1px solid #1a1a1a; /* Borde muy sutil oscuro */
+}
+
+.card-hovered {
+  transform: translateY(-5px); /* Levanta un poquito la card */
+  box-shadow: 0 15px 35px rgba(227, 6, 19, 0.15); /* Sombra suave de color ROJO STRETEAT */
+  border-color: #e74c3c; /* El borde se vuelve rojo al hover */
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- CONTENEDOR DE FOTO: ¡AHORA CUADRADO! --- */
+.product-image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Formato 1:1 PERFECTAMENTE CUADRADO */
+  overflow: hidden;
+  position: relative;
+  background-color: #1a1a1a; /* Fondo oscuro por si la imagen tarda */
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.1); /* Zoom más agresivo */
+}
+
+/* --- Cartelito HOT Rojo Fuego --- */
+.badge-destacado {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #e74c3c; /* Rojo Vibrante STRETEAT */
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 7px 14px;
+  letter-spacing: 2px;
+  z-index: 2;
+  text-transform: uppercase;
+  transform: rotate(-5deg); /* Un toquecito rebelde */
+}
+
+/* --- LA ZONA DE DATOS: NEGRO Y ROJO --- */
+.product-info-dark {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Más padding para que respire */
+  gap: 10px;
+  text-align: left;
+  background-color: #000; /* Fondo Negro Profundo */
+  border-top: 3px solid #e74c3c; /* Una línea divisoria roja gruesa y facherita */
+}
+
+.info-header {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.product-category-red {
+  font-size: 0.50rem;
+  background-color: #e74c3c;
+  padding: 5px 10px; /* Categoría en ROJO */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 800;
+  border-radius: 20px;
+}
+
+.product-name-white {
+  font-size: 1.2rem; /* Más grande e imponente */
+  font-weight: 900; /* Extra negrita */
+  color: #fff; /* LETRAS BLANCAS */
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  
+  /* Truncado de texto a 2 líneas si el nombre es muy largo */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 2.4em; /* Asegura espacio para 2 líneas */
+}
+
+.info-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.product-price-white {
+  font-size: 1.3rem; /* Precio grande */
+  font-weight: 700;
+  color: #fff; /* Precio en BLANCO */
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Usá una fuente sans-serif si tenés */
+}
+
+/* Un acento visual final en rojo al hover */
+.red-accent-line {
+  width: 0%;
+  height: 2px;
+  background-color: #e74c3c;
+  transition: width 0.4s ease;
+}
+
+.product-card:hover .red-accent-line {
+  width: 40px; /* Aparece una barrita roja abajo a la derecha */
+}
+
+/* --- CARTEL DE AGOTADO --- */
+.badge-agotado {
+  position: absolute;
+  top: 10px; /* Ajustalo para que no pise el cartel de HOT si tiene los dos */
+  right: 10px; /* Podés ponerlo a la derecha y el HOT a la izquierda */
+  background-color: #222222; /* Gris oscuro / Negro */
+  color: #ffffff;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  z-index: 2;
+  text-transform: uppercase;
+  border: 1px solid #444; /* Bordecito sutil */
+}
+
+/* Opcional: Oscurecer un poco la foto cuando no hay stock */
+.image-dimmed {
+  opacity: 0.6;
+  filter: grayscale(40%); /* Le saca un poco de color para que parezca desactivado */
+  transition: all 0.3s ease;
+}
+
+/* Evitar que se ilumine al pasar el mouse si no hay stock */
+.out-of-stock:hover .image-dimmed {
+  opacity: 0.8; 
+}

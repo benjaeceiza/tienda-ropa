@@ -1,0 +1,314 @@
+/* =========================================
+   LAYOUT SPLIT SCREEN (Pantalla Dividida)
+   ========================================= */
+.auth-split-container {
+  display: flex;
+  height: 100vh;
+  /* 100% del alto de la pantalla */
+  width: 100%;
+  background-color: var(--bg-dark);
+  overflow: hidden;
+  /* Evita scrolls raros si el contenido es corto */
+}
+
+/* --- Mitad Izquierda (Imagen) --- */
+.auth-image {
+  flex: 1;
+  /* Ocupa todo el espacio sobrante */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Fotos específicas para cada vista */
+.login-bg {
+
+  background-image: url("../../assets/fondos/login.png");
+}
+
+.register-bg {
+  background-image: url('../../assets/fondos/register.png');
+}
+
+/* Botón de volver arriba de la foto */
+.auth-back-link {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.auth-back-link:hover {
+  background-color: var(--brand-red);
+}
+
+/* --- Mitad Derecha (Panel del Formulario) --- */
+.auth-side-panel {
+  width: 100%;
+  max-width: 550px;
+  /* Ancho fijo del panel derecho */
+  height: 100%;
+  background-color: var(--bg-card);
+  /* Gris oscuro */
+  border-left: 1px solid #333;
+  overflow-y: auto;
+  /* Scroll interno si el formulario es muy largo */
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-panel-content {
+  padding: 4rem;
+  margin: auto 0;
+  /* Centra el contenido verticalmente */
+}
+
+/* =========================================
+   ESTILOS INTERNOS DEL FORMULARIO
+   ========================================= */
+.auth-title {
+  font-family: 'Impact', sans-serif;
+  font-size: 2.8rem;
+  color: var(--text-light);
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 2px;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.auth-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.auth-row .auth-input-group {
+  flex: 1;
+}
+
+.auth-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-input-group label {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.auth-input-group input {
+  background-color: #111;
+  border: 1px solid #333;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.auth-input-group input:focus {
+  outline: none;
+  border-color: var(--brand-red);
+}
+
+.auth-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.auth-eye-btn {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.auth-eye-btn:hover {
+  color: var(--text-light);
+}
+
+.auth-forgot {
+  text-align: right;
+  margin-top: -10px;
+}
+
+.auth-forgot a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-forgot a:hover {
+  color: var(--text-light);
+}
+
+.auth-submit-btn {
+  background-color: var(--brand-red);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-submit-btn:hover {
+  background-color: #d10a2d;
+  transform: translateY(-2px);
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #333;
+}
+
+.auth-footer p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.auth-footer a {
+  color: var(--brand-red);
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+  color: white;
+}
+
+.auth-error-msg {
+  background-color: #fee2e2;
+  /* Un rojo muy clarito de fondo */
+  border-left: 4px solid #ef4444;
+  /* Una barra roja intensa a la izquierda */
+  color: #b91c1c;
+  /* Texto en rojo oscuro para que se lea bien */
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  animation: shake 0.4s ease-in-out;
+  /* Un pequeño efecto de sacudida */
+}
+
+.auth-error-msg p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Spinner pequeño para botones */
+.btn-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin-button 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin-button {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Animación de "shake" por si querés que llame más la atención */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE (Móviles y Tablets)
+   ========================================= */
+@media (max-width: 900px) {
+  .auth-image {
+    display: none;
+    /* Escondemos la foto en pantallas chicas */
+  }
+
+  .auth-side-panel {
+    max-width: 100%;
+    /* El panel ahora ocupa toda la pantalla */
+    border-left: none;
+  }
+
+  .auth-panel-content {
+    padding: 2rem;
+    /* Menos padding en mobile */
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}

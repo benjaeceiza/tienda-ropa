@@ -1,0 +1,41 @@
+[
+    {
+        "id": "p5",
+        "nombre": "RELAXED CHINO BLACK",
+        "precio": 54000,
+        "img": "https://i.pinimg.com/1200x/55/c8/92/55c892ad4e57f946c680bb3a701ca27e.jpg",
+        "imagenes": [
+            "https://i.pinimg.com/1200x/f4/54/5f/f4545f99897fe6e659010a4529579730.jpg",
+            "https://i.pinimg.com/1200x/bb/04/c8/bb04c825121e3cd25fdc0825e566903b.jpg"
+        ]
+    },
+    {
+        "id": "c1",
+        "nombre": "Air Jordan 1 Mid SE",
+        "precio": 299999,
+        "img": "https://nikearprod.vtexassets.com/arquivos/ids/1549121-1200-1200?width=1200&height=1200&aspect=true",
+        "imagenes": [
+            "https://nikearprod.vtexassets.com/arquivos/ids/1554535-1200-1200?width=1200&height=1200&aspect=true",
+            "https://nikearprod.vtexassets.com/arquivos/ids/1556360-1200-1200?width=1200&height=1200&aspect=true"
+        ]
+    },
+     {
+      "id": "c3",
+      "nombre": "Nike SB Chron 2",
+      "precio": 134999,
+      "img": "https://nikearprod.vtexassets.com/arquivos/ids/498907-1200-1200?width=1200&height=1200&aspect=true",
+      "imagenes": [
+        "https://nikearprod.vtexassets.com/arquivos/ids/503270-1200-1200?width=1200&height=1200&aspect=true",
+        "https://nikearprod.vtexassets.com/arquivos/ids/504680-1200-1200?width=1200&height=1200&aspect=true"
+      ]
+    },
+     {
+      "id": "h2",
+      "nombre": "ACID WASH OVERSIZE",
+      "precio": 62500,
+      "img": "https://i.pinimg.com/736x/fd/64/39/fd6439035b925ffcec73f16d4793d3f8.jpg",
+      "imagenes": [
+        "https://i.pinimg.com/1200x/b3/85/43/b3854384c3a2fdf4925f62d734d8baa5.jpg"
+      ]
+    }
+]

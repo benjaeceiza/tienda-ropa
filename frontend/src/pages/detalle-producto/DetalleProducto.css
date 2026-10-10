@@ -1,0 +1,350 @@
+.detalle-container {
+  padding: 2rem 4rem 6rem 4rem;
+  background-color: var(--bg-dark);
+  min-height: 100vh;
+  color: var(--text-light);
+}
+
+.detalle-breadcrumb {
+  max-width: 1300px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.detalle-breadcrumb a {
+  color: var(--text-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.detalle-breadcrumb a:hover {
+  color: var(--brand-red);
+}
+
+/* =========================================
+   LAYOUT NIKE (Split a 2 Columnas Desiguales)
+   ========================================= */
+.detalle-layout-nike {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* La galería ocupa más espacio que la info */
+  gap: 4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- Galería Izquierda --- */
+.detalle-galeria-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  position: sticky;
+  top: 100px; /* Queda fija al scrollear si la info es larga */
+  height: fit-content;
+}
+
+.detalle-miniaturas-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70px; /* Ancho fijo para las miniaturas */
+}
+
+.detalle-miniatura {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+  background-color: #1a1a1a;
+}
+
+.detalle-miniatura:hover {
+  opacity: 0.8;
+}
+
+.detalle-miniatura.activa {
+  opacity: 1;
+  border: 1px solid var(--text-light);
+}
+
+.detalle-img-principal-container {
+  flex: 1;
+  background-color: #0f0f0f;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 700px; /* Alto imponente */
+}
+
+.detalle-img-principal {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* --- Info Derecha --- */
+.detalle-info-col {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.detalle-etiqueta-nuevo {
+  color: var(--brand-red);
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.detalle-titulo {
+  font-size: 2.2rem;
+  margin: 0 0 0.2rem 0;
+  line-height: 1.1;
+}
+
+.detalle-subtitulo {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 0 0 1.5rem 0;
+}
+
+.detalle-precio {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 0.2rem 0;
+}
+
+.detalle-cuotas {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+/* --- Talles Estilo Nike --- */
+.detalle-talles-seccion {
+  margin-bottom: 2rem;
+}
+
+.detalle-talles-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.detalle-guia-talles {
+  color: var(--text-muted);
+  text-decoration: underline;
+}
+
+.detalle-guia-talles:hover {
+  color: var(--text-light);
+}
+
+.detalle-talles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 Columnas exactas */
+  gap: 10px;
+}
+
+.detalle-talle-btn {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: var(--text-light);
+  padding: 14px 0;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative; /* Para el tachado */
+}
+
+.detalle-talle-btn:hover:not(.agotado) {
+  border-color: #888;
+}
+
+.detalle-talle-btn.seleccionado {
+  border-color: var(--text-light);
+  border-width: 1px;
+  box-shadow: inset 0 0 0 1px var(--text-light); /* Efecto de borde más grueso hacia adentro */
+}
+
+/* Estilo para talles sin stock */
+.detalle-talle-btn.agotado {
+  opacity: 0.3;
+  cursor: not-allowed;
+  background-color: #111;
+}
+
+/* La raya diagonal cruzada (Strikethrough) */
+.detalle-talle-btn.agotado::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+  background-color: var(--text-light);
+  transform: translateY(-50%) rotate(-10deg); /* Cruza el botón en diagonal */
+}
+
+/* --- Botones de Acción --- */
+.detalle-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 3rem;
+}
+
+.detalle-btn-comprar {
+  background-color: var(--text-light); /* Botón blanco como en Nike pero adaptado a dark mode */
+  color: var(--bg-dark);
+  border: none;
+  padding: 18px;
+  border-radius: 50px; /* Bien redondo */
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.detalle-btn-comprar:hover:not(.deshabilitado) {
+  background-color: #ddd;
+}
+
+.detalle-btn-comprar.deshabilitado {
+  background-color: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.detalle-btn-favorito {
+  background-color: transparent;
+  color: var(--text-light);
+  border: 1px solid #333;
+  padding: 18px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: border-color 0.3s;
+}
+
+.detalle-btn-favorito:hover {
+  border-color: var(--text-light);
+}
+
+.detalle-descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  border-top: 1px solid #222;
+  padding-top: 2rem;
+}
+
+/* --- Contenedor Principal del Error (Negro Absoluto) --- */
+.detalle-error {
+ width: 100%;
+ height: 60vh; /* Alto para que quede centrado visualmente */
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color: #000; /* Fondo Negro Profundo */
+ text-align: center;
+ padding: 40px;
+}
+
+/* --- Título (Rojo Vibrante, Grande y Agresivo) --- */
+.detalle-error h2 {
+    font-family: 'Impact', sans-serif;
+    font-size: 3rem;
+    color: var(--brand-red);
+    margin-bottom: 1rem;
+}
+
+/* --- Subtítulo (Gris sutil para contexto) --- */
+.detalle-error p {
+ font-size: 1rem;
+ color: #888; /* Gris medio */
+ margin: 0 0 30px 0;
+ max-width: 500px;
+}
+
+/* --- El Botón (Blanco Cuadrado, Letras Negras) --- */
+.detalle-btn-volver {
+    margin-top: 2rem;
+    padding: 10px 24px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+/* --- Efecto Hover del Botón (Se vuelve Negro con Borde Blanco) --- */
+.detalle-btn-volver:hover {
+ background-color: var(--brand-red);
+ color: #fff;
+ border-color: #fff;
+}
+
+/* =========================================
+   RESPONSIVE (Tablets y Móviles)
+   ========================================= */
+@media (max-width: 1024px) {
+  .detalle-layout-nike {
+    grid-template-columns: 1fr; /* Pasa a 1 sola columna */
+    gap: 2rem;
+  }
+  
+  .detalle-galeria-wrapper {
+    position: static; /* Saca el sticky en mobile */
+    flex-direction: column-reverse; /* Miniaturas abajo de la foto principal */
+  }
+
+  .detalle-miniaturas-col {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto; /* Scroll horizontal de miniaturas */
+    padding-bottom: 10px;
+  }
+
+  .detalle-miniatura {
+    width: 80px;
+    flex-shrink: 0; /* Para que no se achiquen */
+  }
+
+  .detalle-img-principal-container {
+    height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detalle-container {
+    padding: 1rem 1.5rem 4rem 1.5rem;
+  }
+  
+  .detalle-img-principal-container {
+    height: 400px;
+  }
+  
+  .detalle-talles-grid {
+    grid-template-columns: repeat(3, 1fr); /* En mobile conviene a 3 columnas para que entren mejor */
+  }
+}
